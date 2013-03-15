@@ -1,8 +1,7 @@
 # HTML5 and JavaScript Demos 
 
 ## Description 
-This page shows a few HTML5 and JavaScript features we're using on exhibit components and on the web.
-The page can be used to test compatability on various devices.
+This is a test page with a whole bunch of JavaScript, HTML5 and CSS3 on it. Use it to test support for these technologies on various devices.
 
 ## Demos
 - Touchscreen-friendly drag and drop (jQueryUI, Touch Punch library)
