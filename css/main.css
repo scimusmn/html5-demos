@@ -2,7 +2,8 @@
   cursor: move;
 }
 audio,
-video {
+video,
+canvas {
   margin-bottom: 1em;
 }
 

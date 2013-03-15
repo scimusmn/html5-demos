@@ -1,6 +1,5 @@
-/*
- * Demo adapted from http://html5.litten.com/simple-animation-in-the-html5-canvas-element/
-*/
+// Demo adapted from http://html5.litten.com/simple-animation-in-the-html5-canvas-element
+
 var canvas;
 var ctx;
 var x = 320;
@@ -23,7 +22,6 @@ function rect(x,y,w,h) {
   ctx.fill();
 }
 
-
 function clear() {
   ctx.clearRect(0, 0, WIDTH, HEIGHT);
 }
@@ -31,15 +29,15 @@ function clear() {
 function init() {
   canvas = document.getElementById("canvas");
   ctx = canvas.getContext("2d");
-  return setInterval(draw, 10);
+  bounce = setInterval(draw, 10);
+  return bounce;
 }
-
 
 function draw() {
   clear();
-  ctx.fillStyle = "#FAF7F8";
+  ctx.fillStyle = "#3a87ad";
   rect(0,0,WIDTH,HEIGHT);
-  ctx.fillStyle = "#444444";
+  ctx.fillStyle = "#f89406";
   circle(x, y, 10);
 
   if (x + dx > WIDTH || x + dx < 0)
@@ -51,4 +49,22 @@ function draw() {
   y += dy;
 }
 
+function stop() {
+  clearInterval(bounce);
+}
+
 init();
+
+// Stop button
+$('#stop-bounce').click(function() {
+  stop();
+  $('#start-bounce').removeClass('disabled');
+  $(this).addClass('disabled');
+});
+// Start button
+$('#start-bounce').click(function() {
+  init();
+  $('#stop-bounce').removeClass('disabled');
+  $(this).addClass('disabled');
+});
+
