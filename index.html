@@ -49,7 +49,7 @@
                     <h2>Drag and Drop</h2>
                     <p>You can drag these 3 columns around the page.</p>
                     <p>This should also work on a touchscreen, with the help of the jQuery UI Touch Punch library.</p>
-                    <p><a class="btn" href="#">View source &raquo;</a></p>
+                    <p class="btn-group"><a class="btn" href="#">View source &raquo;</a><a class="btn" href="#">Reset positions</a></p>
                     
                     <h3>Audio</h3>
                     <p>Here's a test with just an mp3 file. It's the theme music from "Fossil Feud."</p>
@@ -63,15 +63,15 @@
                     <p>This is an mp4/H.264 video from the American Indian kiosks. The button below uses the 
                       <a href="http://dev.opera.com/articles/view/introduction-html5-video">HTML5 JavaScript API</a> for event handling.
                     </p>
+                    <p>The upside-down bit uses jQuery and CSS3 transformations.</p>
                     <video width="320" height="180" id="roxanne-video" controls>
                       <source src="media/video/roxanne.mp4" type="video/mp4">
                     </video>
-                    <p class="btn-group"><a class="btn play" href="#">Play</a><a class="btn pause" href="#">Pause</a></p>
+                    <p class="btn-group"><a class="btn play" href="#">Play</a><a class="btn pause" href="#">Pause</a><a class="btn flip">Turn it upside down</a></p>
                </div>
                 <div class="span4 dragme">
                     <h2>Animation</h2>
-                    <p>Dynamic animation using the HTML &#60;canvas&#62; tag, adapted from <a href="http://spielzeugz.de/html5/liquid-particles.html">http://spielzeugz.de/html5/liquid-particles.html</a>.</p>
-                    
+                    <p>This animation uses the HTML5 canvas tag and JavaScript. Adapted from <a href="http://html5.litten.com/simple-animation-in-the-html5-canvas-element/">http://html5.litten.com/simple-animation-in-the-html5-canvas-element/</a>.</p>
                     <h3>Image Crossfade</h3>
                     <p>The slider here fades opacity between two stacked images.</p>
                     
@@ -90,6 +90,7 @@
         <script src="js/vendor/bootstrap.min.js"></script>
         <!-- lightbox plugin (see http://orangebox.davidpaulhamilton.net/) -->
         <script src="js/vendor/orangebox/js/orangebox.min.js"></script>
+
         <!-- Custom JS for this page -->
         <script src="js/main.js"></script>
     </body>
