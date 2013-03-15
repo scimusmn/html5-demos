@@ -1,15 +1,28 @@
+.hero-unit {
+  padding: 30px;
+}
+
+.hero-unit p {
+  margin-top: 1em;
+}
+
 .dragme {
   cursor: move;
 }
+
 audio,
 video,
 canvas {
   margin-bottom: 1em;
 }
 
-
-
-
+.flip {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
 
 
 

@@ -46,4 +46,9 @@ $(document).ready(function() {
     v.pause();
   });
 
+  // Flip the video upside-down
+  $('#flip').click(function() {
+    $('#roxanne-video').toggleClass('flip');
+  });
+
 });
