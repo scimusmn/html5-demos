@@ -51,4 +51,16 @@ $(document).ready(function() {
     $('#roxanne-video').toggleClass('flip');
   });
 
+  // Initialize the slider plugin
+  $('#slider').slider({
+    min: 0,
+    max: 1,
+    step: 0.05,
+    animate: 'slow',
+    slide: function(event, ui) {
+      $('#earth').css('opacity', 1-ui.value);
+      $('#moon').css('opacity', ui.value);
+    }
+  });
+
 });

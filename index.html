@@ -6,7 +6,6 @@
     <title>HTML5/JavaScript Demos</title>
     <meta name="description" content="HTML5 demo page">
     <meta name="viewport" content="width=device-width">
-
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <style>
       body {
@@ -15,7 +14,7 @@
       }
     </style>
     <link rel="stylesheet" href="js/vendor/orangebox/css/orangebox.css">
-      
+    <link rel="stylesheet" href="css/jquery-ui.css">      
     <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
     <link rel="stylesheet" href="css/main.css">
 
@@ -39,8 +38,13 @@
           <p>This should also work on a touchscreen, with the help of the jQuery UI Touch Punch library.</p>
           <p class="btn-group"><a class="btn" href="#">View source &raquo;</a><a class="btn btn-info" id="drag-reset" href="#">Reset positions</a></p>
 
-          <h3>Image Crossfade <span class="label label-success">JavaScript</span></h3>
-          <p>The slider here fades opacity between two stacked images.</p>
+          <h3>Image Crossfade <span class="label label-success">JavaScript</span>&nbsp;<span class="label">CSS3</span></h3>
+          <p>The slider below fades opacity between two stacked images, using jQuery UI for the widget and CSS3 for the opacity property.</p>
+          <div id="images">
+            <img src="media/images/earth.jpg" id="earth" />
+            <img src="media/images/moon.jpg" id="moon" />
+          </div>
+          <div id="slider"></div>
           <p><a class="btn" href="#">View source &raquo;</a></p>  
         </div>
           

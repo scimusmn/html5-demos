@@ -24,11 +24,20 @@ canvas {
   transform: rotate(180deg);
 }
 
-
-
-
-
-
+div#images {
+  height: 240px;
+  width: 240px;
+  margin-bottom: 1em;
+}
+div#images img:last-child {
+  top: -240px;
+  position: relative;
+  opacity: 0;
+}
+#slider {
+  width: 80%;
+  margin-bottom: 1em;
+}
 
 
 
