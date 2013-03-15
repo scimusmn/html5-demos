@@ -58,13 +58,9 @@ init();
 // Stop button
 $('#stop-bounce').click(function() {
   stop();
-  $('#start-bounce').removeClass('disabled');
-  $(this).addClass('disabled');
 });
 // Start button
 $('#start-bounce').click(function() {
   init();
-  $('#stop-bounce').removeClass('disabled');
-  $(this).addClass('disabled');
 });
 
