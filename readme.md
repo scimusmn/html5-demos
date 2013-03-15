@@ -6,9 +6,9 @@ The page can be used to test compatability on various devices.
 
 ## Demos
 - Touchscreen-friendly drag and drop (jQueryUI, Touch Punch library)
-- HTML5 audio embed
+- Image crossfade with slider control (jQueryUI)
 - HTML5 video embed, custom JavaScript controls
 - Vimeo embed in jQuery lightbox (Orangebox plugin)
 - Canvas animation (HTML5)
-- Image crossfade with slider control (jQueryUI)
+- HTML5 audio embed
 
