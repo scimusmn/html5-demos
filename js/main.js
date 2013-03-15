@@ -17,8 +17,8 @@ $(document).ready(function() {
   // Make note of each draggable's original position, and store them as data on the objects.
   // Will use for resetting.
   $.each($draggable, function() {
-    var top = $(this).offset().top,
-        left = $(this).offset().left;
+    var top = $(this).position().top,
+        left = $(this).position().left;
     $(this).data('top', top).data('left', left);
   });
 
@@ -29,7 +29,7 @@ $(document).ready(function() {
         'top': $(this).data('top')
       });
       $(this).css({
-        'position': 'absolute'
+        'position': 'fixed'
       });
       $(this).css({
         'left': $(this).data('left')
