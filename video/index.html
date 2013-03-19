@@ -8,8 +8,6 @@
 
     <script src="../js/vendor/jquery-1.9.1.min.js"></script>
     <script src="js/handlebars.js"></script>
-    <script src="../js/vendor/video-js/video.js"></script>
-    <script src="js/video_kiosk.js"></script>
 
     <script src="content/video_data.js"></script>
 
@@ -26,8 +24,11 @@
         success: function (source) {
           var template = Handlebars.compile(source);
           $('.container').html(template(data));
+          video_kiosk(); // Extra video functionality from video_kiosk.js
         }
       });
     </script>
+    <script src="../js/vendor/video-js/video.js"></script>
+    <script src="js/video_kiosk.js"></script>
   </body>
 </html>
