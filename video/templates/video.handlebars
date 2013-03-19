@@ -1,0 +1,16 @@
+<!-- Template for video page -->
+
+<h1>{{PageTitle}}</h1>
+
+{{#if IntroText}}
+  <p>{{IntroText}}</p>
+{{/if}}
+
+{{#each Videos}}
+  <div class="span6">
+    <h2>{{Name}}</h2>
+    <video class="video-js vjs-default-skin" controls preload="auto" width="512" height="288" poster="../media/images/posters/{{Image}}" data-setup="{}">
+      <source src="../media/video/{{File}}" type='video/mp4'>
+    </video>
+  </div>
+{{/each}}
