@@ -5,49 +5,31 @@
     <meta name="description" content="HTML5 demo page">
     <meta name="viewport" content="width=device-width">
     <title>Code Demos - Video Kiosk</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <style>
-      body {
-        padding-top: 30px;
-        padding-bottom: 20px;
-      }
-    </style>
+
     <script src="../js/vendor/jquery-1.9.1.min.js"></script>
-    <script type="text/javascript" src="../js/vendor/handlebars.js"></script>
-    <script type="text/javascript" src="../js/video_data.js"></script>
+    <script src="js/handlebars.js"></script>
+    <script src="js/handlebars.js"></script>
+    <script src="content/video_data.js"></script>
     <script src="../js/vendor/video-js/video.js"></script>
     <script src="../js/vendor/bootstrap.min.js"></script>
 
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/bootstrap-responsive.min.css">
     <link href="../js/vendor/video-js/video-js.css" rel="stylesheet">
   </head>
 
   <body>
-    <div class="container">
-
-      <script id="video-template" type="text/x-handlebars-template">
-        <h1>{{PageTitle}}</h1>
-        {{#each Videos}}
-        <div class="span6">
-          <h2>{{Name}}</h2>
-          <video class="video-js vjs-default-skin" controls preload="auto" width="512" height="288" poster="../media/images/posters/{{Image}}" data-setup="{}">
-            <source src="../media/video/{{File}}" type='video/mp4'>
-          </video>
-        </div>
-        {{/each}}
-      </script>
-
-    </div>
+    <div class="container"></div>
 
     <script>
-      // Get the template from above
-      var source = $('#video-template').html();
-
-      // Compile the actual template file
-      var template = Handlebars.compile(source);
-
-      // Fill the container with the new code.
-      $('.container').html(template(data));
+      $.ajax({
+        url: 'templates/video.handlebars',
+        cache: true,
+        success: function (source) {
+          var template = Handlebars.compile(source);
+          $('.container').html(template(data));
+        }
+      });
     </script>
 
   </body>
