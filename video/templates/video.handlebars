@@ -1,16 +1,31 @@
 <!-- Template for video page -->
 
-<h1>{{PageTitle}}</h1>
-
-{{#if IntroText}}
-  <p>{{IntroText}}</p>
-{{/if}}
+<div class="row">
+  <div class="span12">
+    <h1>{{PageTitle}}</h1>
+    
+    {{#if IntroText}}
+      <p class="lead">{{IntroText}}</p>
+    {{/if}}
+  </div>
+</div>
 
 {{#each Videos}}
-  <div class="span6">
-    <h2>{{Name}}</h2>
-    <video id="video-{{@index}}" class="video-js vjs-default-skin" controls preload="auto" width="512" height="288" poster="../media/images/posters/{{Image}}">
-      <source src="../media/video/{{File}}" type='video/mp4'>
-    </video>
+  <div class="row">
+    
+    <h3 class="span12">{{Name}}</h3>
+
+    <div class="span6">
+      <video id="video-{{@index}}" class="video-js vjs-default-skin" controls preload="auto" width="448" height="252" poster="../media/images/posters/{{Image}}">
+        <source src="../media/video/{{File}}" type='video/mp4'>
+      </video>
+    </div>
+
+    <div class="content span6">
+      {{#if Summary}}
+        <p>{{Summary}}</p>
+      {{/if}}
+    </div>
+
   </div>
 {{/each}}
