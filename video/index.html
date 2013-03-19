@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html class="no-js">
+<html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Code Demos - Video kiosk</title>
     <meta name="description" content="HTML5 demo page">
     <meta name="viewport" content="width=device-width">
+    <title>Code Demos - Video Kiosk</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <style>
       body {
@@ -13,52 +12,43 @@
         padding-bottom: 20px;
       }
     </style>
-    <link rel="stylesheet" href="../js/vendor/orangebox/css/orangebox.css">
-    <link rel="stylesheet" href="../css/jquery-ui.css">      
+    <script src="../js/vendor/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../js/vendor/handlebars.js"></script>
+    <script type="text/javascript" src="../js/video_data.js"></script>
+    <script src="../js/vendor/video-js/video.js"></script>
+    <script src="../js/vendor/bootstrap.min.js"></script>
+
     <link rel="stylesheet" href="../css/bootstrap-responsive.min.css">
-    <link rel="stylesheet" href="../css/main.css">
-
-    <!--[if lt IE 9]>
-        <script src="../js/vendor/html5-3.6-respond-1.1.0.min.js"></script>
-    <![endif]-->
+    <link href="../js/vendor/video-js/video-js.css" rel="stylesheet">
   </head>
-  <body>
 
+  <body>
     <div class="container">
 
-      <h1>This is an example video kiosk</h1>
-      
-      <div class="row">
+      <script id="video-template" type="text/x-handlebars-template">
+        <h1>{{PageTitle}}</h1>
+        {{#each Videos}}
         <div class="span6">
-          <h2>Video 1</h2>
-          <p>Handlebars generates your HTML by taking a JSON structure and running it through a template. These templates are written mostly in regular HTML, and are peppered with placeholders that allow you to inject data, as needed.</p>
+          <h2>{{Name}}</h2>
+          <video class="video-js vjs-default-skin" controls preload="auto" width="512" height="288" poster="../media/images/posters/{{Image}}" data-setup="{}">
+            <source src="../media/video/{{File}}" type='video/mp4'>
+          </video>
         </div>
+        {{/each}}
+      </script>
 
-        <div class="span6">
-          <h2>Video 2</h2>
-          <p>The {{name}} attribute is where the user’s name will be injected into the page. This placeholder corresponds with a property in the data’s JSON structure. This is the most basic example possible, but you will soon see that everything else basically boils down to this simple concept. Let’s move on to handling arrays.</p>
-        </div>
-      </div>
+    </div>
 
-      <div class="row">
-        <div class="span6">
-          <h2>Video 3</h2>
-          <p>Handlebars comes with some built-in helpers to assist you in working with more complex data. One of these helpers is the each helper. This helper iterates through an array and allows you to create dynamic HTML, per array element.</p>
-        </div>
+    <script>
+      // Get the template from above
+      var source = $('#video-template').html();
 
-        <div class="span6">
-          <h2>Video 4</h2>
-          <p>As you can see, this code is much cleaner than conventional code, such as using a loop in PHP or JavaScript to append HTML to a variable.</p>
-        </div>
-      </div>
+      // Compile the actual template file
+      var template = Handlebars.compile(source);
 
-    </div> <!-- /container -->
+      // Fill the container with the new code.
+      $('.container').html(template(data));
+    </script>
 
-    <!-- required libraries -->
-    <script src="../js/vendor/jquery-1.9.1.min.js"></script>
-    <script src="../js/vendor/jquery-ui-1.10.1.min.js"></script>
-    <script src="../js/vendor/jquery.ui.touch-punch.min.js"></script>
-    <script src="../js/vendor/bootstrap.min.js"></script>
-    <script src="../js/vendor/orangebox/js/orangebox.min.js"></script>
   </body>
 </html>
