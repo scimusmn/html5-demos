@@ -8,6 +8,9 @@ function video_kiosk() {
   // Set some variables, we'll use these a bunch
   var $videoOption = $('#video-options div');
   var videoPlayer = _V_('videoPlayer');
+  // Path is relative to the kiosk page.
+  // Should contain subdirectories for images and videos.
+  var videoPath = '../media/video/';
 
   $videoOption.eq(0).addClass('selected'); // Select the first video initially
 
@@ -28,12 +31,16 @@ function video_kiosk() {
 
     // Toggle video play/pause by clicking on its title or poster image
     $videoOption.click(function() {
-      var id = this.id;
+      var video = $(this).attr('data-video-source');
+      var poster = $('img', this).attr('src');
+
       // Change the video source and poster attributes
+      videoPlayer.src(videoPath + video);
+      $('.vjs-poster').attr('src', poster);
 
       // Add the selected class to the selected video
       $('.selected').removeClass('selected');
-      $('#' + id).addClass('selected');
+      $(this).addClass('selected');
     });
 
 
