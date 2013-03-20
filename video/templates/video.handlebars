@@ -15,7 +15,7 @@
 
 <div class="row" id="video-options">
   {{#each Videos}}
-    <div class="span3" id="video-{{@index}}">
+    <div class="span3" id="video-{{@index}}" data-video-source="{{File}}">
       <img src="../media/images/posters/{{Image}}" alt="{{Name}}" class="img-rounded">    
       <h4>{{Name}}</h4>
     </div>
