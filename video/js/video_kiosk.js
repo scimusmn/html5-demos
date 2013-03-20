@@ -17,9 +17,22 @@ function video_kiosk() {
   // Initialize the videojs plugin.
   videoPlayer.ready(function() {
 
-    // Reset poster image when video ends
+    // Enlarge video on play
+    this.addEvent("play", function() {
+      this.size(940, 530); // @TODO Can this be animated/eased?
+      $('.summary').hide(); // @TODO Make these switch, too
+    });
+
+    // Show play button on pause
+    this.addEvent("pause", function() {
+      $('.vjs-big-play-button').css('visibility','visible').show();
+    });
+
+    // Reset poster image and shrink back down when video ends
     this.addEvent("ended", function() {
       this.posterImage.show();
+      this.size(512, 288);
+      $('.summary').show();
     });
 
     // Toggle main video by clicking on its title or poster image
@@ -36,13 +49,15 @@ function video_kiosk() {
         videoPlayer.currentTime("0").posterImage.show();
         $('.vjs-big-play-button').css('visibility','visible').show();
 
+        videoPlayer.size(512, 288); // Shrink back down
+        $('.summary').show();
+
         // Add the selected class to the selected video
         $('.selected').removeClass('selected');
         $(this).addClass('selected');
       }
     });
 
-    // @TODO Enlarge video on play, size back to normal on pause/end. Hide summary.
     // @TODO Use modal window for full-screen - easier to close on kiosk
 
   });
