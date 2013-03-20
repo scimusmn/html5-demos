@@ -73,6 +73,9 @@ div#images img:last-child {
 .selected h4 {
   color: #0088cc;
 }
+.hidden {
+  display: none;
+}
 
 
 

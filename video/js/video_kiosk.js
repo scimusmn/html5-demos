@@ -6,11 +6,10 @@
 function video_kiosk() {
 
   // Set some variables, we'll use these a bunch
-  var $videoOption = $('#video-options div').not('.selected');
-  var videoPlayer = _V_('videoPlayer');
-  // Path is relative to the kiosk page.
-  // Should contain subdirectories for images and videos.
-  var videoPath = '../media/video/';
+  var $videoOption = $('#video-options div').not('.selected'),
+      videoPlayer = _V_('videoPlayer'),
+      // Path is relative to the kiosk page
+      videoPath = '../media/video/';
 
   $videoOption.eq(0).addClass('selected'); // Select the first video initially
 
@@ -19,8 +18,8 @@ function video_kiosk() {
 
     // Enlarge video on play
     this.addEvent("play", function() {
-      this.size(940, 530); // @TODO Can this be animated/eased?
-      $('.summary').hide(); // @TODO Make these switch, too
+      this.size(940, 530);
+      $('.summary p').hide();
     });
 
     // Show play button on pause
@@ -32,13 +31,15 @@ function video_kiosk() {
     this.addEvent("ended", function() {
       this.posterImage.show();
       this.size(512, 288);
-      $('.summary').show();
+      $('.summary p').show();
     });
 
     // Toggle main video by clicking on its title or poster image
     $videoOption.click(function() {
-      var video = $(this).attr('data-video-source');
-      var poster = $('img', this).attr('src');
+      var id = $(this).attr('id').match(/\d+/),
+          video = $(this).attr('data-video-source'),
+          poster = $('img', this).attr('src'),
+          $summary = $('#summary-' + id).text();
 
       // Change the video source and poster attributes
       if (!$(this).hasClass('selected')) {
@@ -50,7 +51,9 @@ function video_kiosk() {
         $('.vjs-big-play-button').css('visibility','visible').show();
 
         videoPlayer.size(512, 288); // Shrink back down
-        $('.summary').show();
+
+        // Show the right summary
+        $('.summary p').show().text($summary);
 
         // Add the selected class to the selected video
         $('.selected').removeClass('selected');
