@@ -13,7 +13,7 @@ var data = {
     },
     {
       Name : "The last first language speaker",
-      File : "1Jim.mp4",
+      File : "1Denomie.mp4",
       Image : "jim1.jpg",
       Summary : "Dapibus ac mauris et dis lorem augue auctor? Habitasse habitasse. Arcu nec tincidunt nisi, auctor magna, aenean? Parturient, ultricies enim."
     },
@@ -25,7 +25,7 @@ var data = {
     },
     {
       Name : "An artist incorporates his experiences",
-      File : "2jim.mp4",
+      File : "2Denomie.mp4",
       Image : "jim2.jpg",
       Summary : "Dapibus ac mauris et dis lorem augue auctor? Habitasse habitasse. Arcu nec tincidunt nisi, auctor magna, aenean? Parturient, ultricies enim."
     }
