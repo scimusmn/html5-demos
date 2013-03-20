@@ -5,32 +5,22 @@
 
 function video_kiosk() {
 
-    // Create array of all video IDs on the page
-    var videoIDs = [];
-    $('video').each(function() {
-      videoIDs.push(this.id);
+  // Initialize the videojs plugin.
+  // Usually automated, but needed here since the video markup is created with AJAX
+  // https://github.com/zencoder/video-js/blob/master/docs/setup.md#alternative-setup-for-dynamically-loaded-html
+  _V_('videoPlayer').ready(function() {
+
+    // Reset poster image when video ends
+    this.addEvent("ended", function() {
+      this.posterImage.show();
     });
 
-    // Apply some extra functions to each one
-    $.each(videoIDs, function(index, videoID) {
+    // @TODO Start/pause video from clicking on its associated content
+    // @TODO Use modal window for full-screen - easier to close on kiosk
 
-      // Initialize the videojs plugin on each video on the page.
-      // Usually automated, but needed here since the video markup is created with AJAX
-      // https://github.com/zencoder/video-js/blob/master/docs/setup.md#alternative-setup-for-dynamically-loaded-html
-      _V_(videoID, {}, function(){});
+  });
 
-      // Reset poster image when video ends
-      _V_(videoID).ready(function() {
-        this.addEvent("ended", function() {
-          this.posterImage.show();
-        });
-      });
 
-      // @TODO Stop a playing video if another is started
-
-      // @TODO Start/pause video from clicking on its associated content
-
-      // @TODO Use modal window for full-screen - easier to close on kiosk
-
-    });
 };
+
+
